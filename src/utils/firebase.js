@@ -10,14 +10,13 @@ import {
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyAfRPlq6dWFJSH8VQpFlsyiZg03Dn_jq9c",
-  authDomain: "management-portal-fc4e4.firebaseapp.com",
-  projectId: "management-portal-fc4e4",
-  storageBucket: "management-portal-fc4e4.firebasestorage.app",
-  messagingSenderId: "655149591071",
-  appId: "1:655149591071:web:5695ac123c76f67863c32a",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
