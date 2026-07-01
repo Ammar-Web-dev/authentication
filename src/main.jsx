@@ -1,16 +1,60 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ClerkProvider } from "@clerk/clerk-react";
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import "./index.css";
-import App from "./App";
+
+import Dashboard from "./pages/Dashboard";
+import Students from "./pages/Students";
+import Teachers from "./pages/Teachers";
+import AddStudent from "./pages/AddStudent";
+import AddTeacher from "./pages/AddTeacher";
+import AppLayout from "./layouts/AppLayout";
+import Help from "./pages/Help";
+import Login from "./pages/Login";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Clerk Publishable Key");
+}
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          {/* Login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} /> {/* Protected Routes */}
+          <Route
+            element={
+              <>
+                <SignedIn>
+                  <AppLayout />
+                </SignedIn>
+
+                <SignedOut>
+                  <Navigate to="/" replace />
+                </SignedOut>
+              </>
+            }
+          >
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/students" element={<Students />} />
+            <Route path="/students/add" element={<AddStudent />} />
+            <Route path="/teachers" element={<Teachers />} />
+            <Route path="/teachers/add" element={<AddTeacher />} />
+            <Route path="/help" element={<Help />} />
+          </Route>
+          {/* 404 */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
     </ClerkProvider>
-  </StrictMode>
+  </StrictMode>,
 );

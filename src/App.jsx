@@ -1,30 +1,11 @@
-import {
-  SignedIn,
-  SignedOut,
-  SignIn,
-  SignOutButton,
-  UserButton,
-} from "@clerk/clerk-react";
-import "./App.css";
+import { SignedIn, SignedOut, SignIn } from "@clerk/clerk-react";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  return (
-    <div>
-      <h1>We are in App.jsx</h1>
+  return <div>
 
-      <SignedOut>
-        <SignIn />
-      </SignedOut>
-
-      <SignedIn>
-        <UserButton />
-        <SignOutButton />
-        <div>
-          <h1>I am Zeeshan Ali</h1>
-        </div>
-      </SignedIn>
-    </div>
-  );
+    <SignIn/>
+  </div>;
 }
 
 export default App;
