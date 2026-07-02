@@ -38,9 +38,9 @@ createRoot(document.getElementById("root")).render(
                   <AppLayout />
                 </SignedIn>
 
-                <SignedOut>
+                {/* <SignedOut>
                   <Navigate to="/" replace />
-                </SignedOut>
+                </SignedOut> */}
               </>
             }
           >
