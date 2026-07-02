@@ -8,14 +8,14 @@ import {
 } from "@clerk/clerk-react";
 import "./index.css";
 
-import Dashboard from "./pages/Dashboard";
-import Students from "./pages/Students";
-import Teachers from "./pages/Teachers";
-import AddStudent from "./pages/AddStudent";
-import AddTeacher from "./pages/AddTeacher";
-import AppLayout from "./layouts/AppLayout";
-import Help from "./pages/Help";
-import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard.jsx";
+import Students from "./pages/Students.jsx";
+import Teachers from "./pages/Teachers.jsx";
+import AddStudent from "./pages/AddStudent.jsx";
+import AddTeacher from "./pages/AddTeacher.jsx";
+import AppLayout from "./layouts/AppLayout.jsx";
+import Help from "./pages/Help.jsx";
+import Login from "./pages/Login.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
