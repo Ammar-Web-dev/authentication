@@ -14,8 +14,8 @@ import Teachers from "./pages/Teachers.jsx";
 import AddStudent from "./pages/AddStudent.jsx";
 import AddTeacher from "./pages/AddTeacher.jsx";
 import AppLayout from "./layouts/AppLayout.jsx";
-import Help from "./pages/Help.jsx";
-import Login from "./pages/Login.jsx";
+import Help from "./pages/Help";
+import Login from "./pages/Login";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
