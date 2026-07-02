@@ -13,7 +13,7 @@ import Students from "./pages/Students.jsx";
 import Teachers from "./pages/Teachers.jsx";
 import AddStudent from "./pages/AddStudent.jsx";
 import AddTeacher from "./pages/AddTeacher.jsx";
-import AppLayout from "./layouts/AppLayout.jsx";
+import AppLayout from "./layout/AppLayout.jsx";
 import Help from "./pages/Help";
 import Login from "./pages/Login";
 
