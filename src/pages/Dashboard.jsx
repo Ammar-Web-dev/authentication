@@ -3,19 +3,23 @@ import Navbar from "../components/Navbar";
 import {
   getStudentsCount,
   getTeachersCount,
+  getCoursesCount,
 } from "../utils/firebase";
 
 function Dashboard() {
   const [studentsCount, setStudentsCount] = useState(0);
   const [teachersCount, setTeachersCount] = useState(0);
+  const [courseCount, setCourseCount] = useState(0);
 
   useEffect(() => {
     const fetchCounts = async () => {
       const students = await getStudentsCount();
       const teachers = await getTeachersCount();
+      const courses = await getCoursesCount();
 
       setStudentsCount(students);
       setTeachersCount(teachers);
+      setCourseCount(courses);
     };
 
     fetchCounts();
@@ -43,6 +47,10 @@ function Dashboard() {
             <p className="text-4xl font-bold text-green-600 mt-2">
               {teachersCount}
             </p>
+          </div>
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h2 className="text-lg text-gray-600">Total courses</h2>
+            <p className="text-4xl font-bold text-black mt-2">{courseCount}</p>
           </div>
         </div>
       </div>

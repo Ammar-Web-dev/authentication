@@ -140,3 +140,62 @@ export const getTeachersCount = async () => {
     return 0;
   }
 };
+//
+// ==========================
+// COURSES
+// ==========================
+//
+
+// Add Course
+export const addCourseToDb = async (course) => {
+  try {
+    await addDoc(collection(db, "courses"), course);
+
+    return {
+      success: true,
+      message: "Course added successfully",
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+};
+
+// Get Courses
+export const getCoursesFromDb = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, "courses"));
+
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+// Delete Course
+export const deleteCourseFromDb = async (id) => {
+  try {
+    await deleteDoc(doc(db, "courses", id));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Course Count
+export const getCoursesCount = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, "courses"));
+    return snapshot.size;
+  } catch (error) {
+    console.error(error);
+    return 0;
+  }
+};

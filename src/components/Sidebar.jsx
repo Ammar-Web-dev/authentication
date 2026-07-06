@@ -28,6 +28,13 @@ function Sidebar() {
       path: "/teachers",
       icon: <Users size={20} />,
     },
+    {
+      name: "Course",
+      path: "/course",
+      icon: <Users size={20} />,
+    },
+    
+
 {
   name: "Help",
   path: "/help",

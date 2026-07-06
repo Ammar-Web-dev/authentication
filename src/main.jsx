@@ -1,11 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-} from "@clerk/clerk-react";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
 import "./index.css";
 
 import Dashboard from "./pages/Dashboard.jsx";
@@ -16,7 +12,8 @@ import AddTeacher from "./pages/AddTeacher.jsx";
 import AppLayout from "./layout/AppLayout.jsx";
 import Help from "./pages/Help";
 import Login from "./pages/Login";
-
+import Course from "./pages/Course.jsx";
+import AddCourse from "./pages/AddCourse.jsx";
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
@@ -50,6 +47,8 @@ createRoot(document.getElementById("root")).render(
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/teachers/add" element={<AddTeacher />} />
             <Route path="/help" element={<Help />} />
+            <Route path="/course" element={<Course />} />
+            <Route path="/course/add" element={<AddCourse />} />
           </Route>
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
